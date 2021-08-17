@@ -3,8 +3,9 @@ import { useSelector,useDispatch } from 'react-redux'
 import { loadUsersAsync } from '../redux/reducers/users/thunks'
 
 const UsersPage = () => {
+    const dispatch = useDispatch();
     const {isloading,users,errorMessage} = useSelector((state)=>state.users)
-    const dispatch = useDispatch()
+    
     useEffect(() => {
         dispatch(loadUsersAsync())
     },[])
